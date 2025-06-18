@@ -69,6 +69,16 @@ Route::middleware(['auth.permission'])->prefix('admin')->name('admin.')->group(f
         Route::delete('/{id}', 'destroy')->name('destroy');
     });
 
+    // User Login History
+    Route::prefix('logins')->name('logins.')->controller(\App\Http\Controllers\UserLoginController::class)->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/user/{userId}', 'user')->name('user');
+    });
+
+    // Visitor History
+    Route::prefix('visitors')->name('visitors.')->controller(\App\Http\Controllers\VisitorController::class)->group(function () {
+        Route::get('/', 'index')->name('index');
+    });
 });
 
 

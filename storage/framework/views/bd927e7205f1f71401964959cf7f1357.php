@@ -1,0 +1,2 @@
+
+<?php echo $__env->make('admin.roles.form', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH D:\todaytabweb\resources\views/admin/roles/edit.blade.php ENDPATH**/ ?>

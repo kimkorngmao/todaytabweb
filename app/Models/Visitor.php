@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Jenssegers\Agent\Agent;
 
 class Visitor extends Model
 {
@@ -30,5 +31,37 @@ class Visitor extends Model
             'user_agent' => request()->userAgent(),
             'page_visited' => $page
         ]);
+    }
+
+    // Accessor for browser
+    public function getBrowserAttribute()
+    {
+        $agent = new Agent();
+        $agent->setUserAgent($this->user_agent);
+        return $agent->browser();
+    }
+
+    // Accessor for platform
+    public function getPlatformAttribute()
+    {
+        $agent = new Agent();
+        $agent->setUserAgent($this->user_agent);
+        return $agent->platform();
+    }
+
+    // Accessor for device
+    public function getDeviceAttribute()
+    {
+        $agent = new Agent();
+        $agent->setUserAgent($this->user_agent);
+        return $agent->device();
+    }
+
+    // Accessor for is_robot
+    public function getIsRobotAttribute()
+    {
+        $agent = new Agent();
+        $agent->setUserAgent($this->user_agent);
+        return $agent->isRobot() ? 'Yes' : 'No';
     }
 }
