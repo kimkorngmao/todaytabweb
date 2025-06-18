@@ -16,13 +16,13 @@ use Illuminate\Support\Facades\Artisan;
 // });
 
 // php artisan db:seed --class=PermissionSeeder
-Route::get('/create-permission', function () {
-    Artisan::call('db:seed', [
-        '--class' => 'PermissionSeeder',
-        '--force' => true,
-    ]);
-    return 'PermissionSeeder run successfully.';
-});
+// Route::get('/create-permission', function () {
+//     Artisan::call('db:seed', [
+//         '--class' => 'PermissionSeeder',
+//         '--force' => true,
+//     ]);
+//     return 'PermissionSeeder run successfully.';
+// });
 
 Route::middleware(['auth.permission'])->prefix('admin')->name('admin.')->group(function () {
     //Admin dashboard
