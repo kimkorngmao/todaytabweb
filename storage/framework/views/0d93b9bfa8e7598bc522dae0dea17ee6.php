@@ -1,0 +1,2 @@
+
+<?php echo $__env->make('admin.categories.form', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH /homepages/46/d4299097096/htdocs/todaytab/resources/views/admin/categories/create.blade.php ENDPATH**/ ?>

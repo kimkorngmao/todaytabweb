@@ -1,0 +1,2 @@
+
+<?php echo $__env->make('admin.articles.form', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH D:\00Others\todaytab\resources\views/admin/articles/edit.blade.php ENDPATH**/ ?>
