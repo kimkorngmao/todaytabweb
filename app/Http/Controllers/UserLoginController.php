@@ -11,7 +11,7 @@ class UserLoginController extends Controller
     // Display all user login history
     public function index()
     {
-        $logins = UserLogin::with('user')->latest()->paginate(20);
+        $logins = UserLogin::latest()->paginate(20);
         return view('admin.user_logins.index', compact('logins'));
     }
 
