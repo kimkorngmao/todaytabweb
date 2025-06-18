@@ -10,9 +10,18 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\SiteSettingController;
 use Illuminate\Support\Facades\Artisan;
 
-Route::get('/create-storage-link', function () {
-    Artisan::call('storage:link');
-    return 'Storage link created.';
+// Route::get('/create-storage-link', function () {
+//     Artisan::call('storage:link');
+//     return 'Storage link created.';
+// });
+
+// php artisan db:seed --class=PermissionSeeder
+Route::get('/create-permission', function () {
+    Artisan::call('db:seed', [
+        '--class' => 'PermissionSeeder',
+        '--force' => true,
+    ]);
+    return 'PermissionSeeder run successfully.';
 });
 
 Route::middleware(['auth.permission'])->prefix('admin')->name('admin.')->group(function () {

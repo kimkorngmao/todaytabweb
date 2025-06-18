@@ -5,7 +5,6 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Cache;
-use App\Providers\PermissionSyncService;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,7 +22,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         //
-        $this->app->singleton(PermissionSyncService::class);
         View::composer('*', function ($view) {
             // all siteSettings
             $siteSettings = \App\Models\SiteSetting::all();
